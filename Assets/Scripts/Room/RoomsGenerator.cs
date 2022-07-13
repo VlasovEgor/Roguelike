@@ -8,10 +8,7 @@ public class RoomsGenerator : MonoBehaviour
     [SerializeField]
     private int _NumberRooms=100;
 
-    [SerializeField]
-    private float _roomSizeX=18;
-    [SerializeField]
-    private float _roomSizeY=10.25f;
+   
 
     private void Start()
     {
@@ -25,7 +22,7 @@ public class RoomsGenerator : MonoBehaviour
 
         foreach (var info in infos)
         {
-            var room = Instantiate(_roomPrefab, new Vector3(info.Position.x * _roomSizeX, info.Position.y * _roomSizeY), Quaternion.identity);
+            var room = Instantiate(_roomPrefab, new Vector3(info.Position.x * _roomPrefab.GetRoomSizeX(), info.Position.y * _roomPrefab.GetRoomSizeY()), Quaternion.identity);
             room.Setup(info.Dirs);
         }
     }
